@@ -30,12 +30,13 @@ func NewConfig() *Config {
 
 func main() {
 	appContext := New()
-	appContext.RegisterBean(
+	err := appContext.RegisterBean(
 		NewConfig,
-		Advice{MethodName: "Before", Execution: "PrintPrefix()", Ordering: aop.Before},
-		Advice{MethodName: "After", Execution: "PrintPrefix()", Ordering: aop.After},
 	)
-	err := appContext.Invoke(func(config *Config) {
+	if err != nil {
+		panic(err)
+	}
+	err = appContext.InvokeFunc(func(config *Config) {
 		config.PrintPrefix()
 	})
 	if err != nil {
