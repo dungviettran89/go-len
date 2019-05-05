@@ -2,20 +2,11 @@ package main
 
 import (
 	"fmt"
-	. "github.com/dungviettran89/go-len/context"
-	"github.com/gogap/aop"
+	. "go-len/context"
 )
 
 type Config struct {
 	Prefix string
-}
-
-func (config *Config) Before(jp aop.JoinPoint) {
-	fmt.Printf("Before...")
-}
-
-func (config *Config) After(jp aop.JoinPoint) {
-	fmt.Printf("After...")
 }
 
 func (config *Config) PrintPrefix() {
