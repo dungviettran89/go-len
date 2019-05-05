@@ -1,4 +1,4 @@
-module github.com/dungviettran89/go-len
+module go-len
 
 go 1.12
 
